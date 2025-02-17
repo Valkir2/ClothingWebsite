@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Product
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mt-5">
+        <div class="col-12 col-md-6 my-3">
+            <img src="{{ product.image.url }}" alt="Product Image" style="max-width: 100%; height: auto;">
+        </div>
+        <div class="col-12 col-md-6 my-3">
+            <div class="col-10 mx-auto">
+                <h1 class="product_title">
+                <a href="{% url 'product_detail' category_slug=product.category.slug product_slug=product.slug %}">
+                {{ product.name }}
+                </a>
+                </h1>
+
+                <!-- Rest of your product details -->
+                <div class="card-footer d-flex justify-content-between" style="background: transparent; border-color: transparent;">
+                    <h5 class="card-text text-info font-italic mb-0">
+                        <span class="mr-1">$</span>{{ product.price }}
+                    </h5>
+                </div>
+                <!-- Other product details -->
+                <p class="product_description">Product Description</p>
+                <p class="text-justify product_text">{{ product.description }}</p>
+                {% if product.stock <= 0 %}
+                <p class="text-justify product_text"><b>Out of Stock</b></p>
+                {% else %}
+                <a href="{% url 'add_cart' product_id=product_id %}">Add to Cart</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

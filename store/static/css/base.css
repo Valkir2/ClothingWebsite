@@ -1,0 +1,40 @@
+.product {
+    width: 200px;
+    height: 300px;
+    border: 1px solid #ccc; /* Add border for better visibility */
+    margin: 10px; /* Add margin to separate products */
+    display: inline-block; /* Display products in a row */
+    vertical-align: top; /* Align products at the top */
+}
+
+.product_title {
+    font-size: 18px; /* Adjust the font size as needed */
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Styles for product text */
+.product_text {
+    padding-right: 10px;
+}
+
+/* Styles for product description */
+.product_description {
+    font-size: 14px; /* Adjust the font size as needed */
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Ellipsis for overflow text */
+}
+
+/* Styles for error messages */
+.errorlist li {
+    color: red;
+    font-weight: bold;
+}

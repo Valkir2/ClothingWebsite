@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="mx-auto">
+    <br>
+        <h1 class="product_title text-center" style="font-size: medium; font-style: italic;">
+        This website has been created by Lupsa Bogdan and it is meant to serve as a portfolio addition.
+    </h1>
+    <br>
+    <div class="container">
+        <p>
+            Thank you for visiting my site
+            <br>
+            <br>    
+            <br>
+            <a href="{% url 'home' %}">Continue browsing</a>
+        </p>
+    </div>
+</div>
+<br>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    PC Part Store - Thank You for Signing Up
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="mb-4">Thank You for Signing Up!</h1>
+            <p>Your account has been successfully created.</p>
+            <!-- You can customize the content based on your requirements -->
+            <p>Now you can explore our products and enjoy a seamless shopping experience.</p>
+            <br>
+            <a href="{% url 'home' %}" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

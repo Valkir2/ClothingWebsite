@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <img
+            alt="Description of the image"
+            src="{% static 'image/image.jpg' %}"
+            style="width: 100%; height: 250px;"
+        >
+    </div>
+</div>
+<div class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="text-capitalize font-weight-bold">
+                    All Products
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* CSS */
+    .card {
+        background-color: #FFFFFF; /* Set the webpage's background color */
+        background-color: rgba(255, 255, 255, 0.8); /* Adjust the alpha value (last value) for transparency */
+        border-radius: 10px; /* Optional: Adds rounded corners to the card */
+        padding: 15px; /* Optional: Adds padding to the card */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow to the card */
+    }
+</style>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for product in products %}
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <a href="{% url 'product_detail' category_slug=product.category.slug product_slug=product.slug %}">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    </a>
+                    <div class="card-body">
+                        <p class="card-title font-weight-bold mb-0">
+                            {{ product.name }}
+                        </p>
+                        <div class="card-footer d-flex justify-content-between" style="background: transparent; border-color: transparent;">
+                            <h5 class="card-text text-info font-italic mb-0">
+                                <span class="mr-1">$</span>{{ product.price }}
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12 text-right">
+            {% if ticker_data %}
+                <h2>Ticker Data</h2>
+                <ul>
+                    <li><strong>Symbol:</strong> {{ ticker_data.symbol }}</li>
+                    <li><strong>Last Price:</strong> {{ ticker_data.lastPrice }}</li>
+                    <li><strong>Price Change:</strong> {{ ticker_data.priceChange }}</li>
+                </ul>
+            {% else %}
+                <p>Failed to fetch ticker data.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
